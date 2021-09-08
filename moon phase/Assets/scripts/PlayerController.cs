@@ -12,7 +12,18 @@ public class PlayerController : MonoBehaviour
     private float zMove;
 
     private Vector3 movement;
-    // Start is called before the first frame update
+
+
+
+    public Transform bulletspawnpos;
+    public GameObject bullet;
+
+    private void Awake()
+    {
+        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = false;
+    }
+
     void Start()
     {
         
@@ -22,6 +33,16 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+
+        {
+            Instantiate(bullet, bulletspawnpos.position, gameObject.transform.rotation);
+        }
+
+
+
 
         if (Input.GetKey(KeyCode.W))
         {
