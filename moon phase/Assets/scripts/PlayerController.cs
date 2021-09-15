@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
@@ -13,10 +14,12 @@ public class PlayerController : MonoBehaviour
 
     private Vector3 movement;
 
-
+    public int ammo;
 
     public Transform bulletspawnpos;
     public GameObject bullet;
+
+    public TMP_Text ammoText;
 
     private void Awake()
     {
@@ -26,7 +29,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-        
+        ammoText.text = Setguitext(); 
     }
     // comment 
 
@@ -38,7 +41,17 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Mouse0))
 
         {
+            if(ammo > 0) 
+            {
             Instantiate(bullet, bulletspawnpos.position, gameObject.transform.rotation);
+                ammo = ammo - 1;
+                ammoText.text = Setguitext();
+            }
+            else 
+            {
+                Debug.Log("your dead");
+            }
+
         }
 
 
@@ -93,4 +106,20 @@ public class PlayerController : MonoBehaviour
         transform.Translate(movement.x * speed * Time.deltaTime, movement.y, movement.z * speed * Time.deltaTime);
 
     }
+
+    string Setguitext()
+    {
+        return $"Ammo: {ammo}";
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "ammo crate") 
+        {
+            ammo = ammo + 100000;
+            Destroy(other.gameObject);
+            ammoText.text = Setguitext();
+        }
+    }
+
 }

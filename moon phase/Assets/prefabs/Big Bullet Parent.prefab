@@ -4951,6 +4951,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletspeed: 8000
+  explosion: {fileID: 4014709090371004149, guid: bf71e7106e0951f4da88e88d4e50afac, type: 3}
 --- !u!136 &8623303918369397596
 CapsuleCollider:
   m_ObjectHideFlags: 0
