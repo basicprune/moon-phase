@@ -4901,7 +4901,7 @@ GameObject:
   - component: {fileID: 8623303918369397596}
   m_Layer: 0
   m_Name: Big Bullet Parent
-  m_TagString: Untagged
+  m_TagString: bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4950,8 +4950,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80091cd54673f1c4a89f244eb7dd7219, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletspeed: 8000
+  bulletspeed: 20000
   explosion: {fileID: 4014709090371004149, guid: bf71e7106e0951f4da88e88d4e50afac, type: 3}
+  power: 20
+  radius: 5
+  upForce: 1
 --- !u!136 &8623303918369397596
 CapsuleCollider:
   m_ObjectHideFlags: 0
